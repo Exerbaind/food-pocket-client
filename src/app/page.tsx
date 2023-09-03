@@ -1,4 +1,6 @@
 import { Metadata } from 'next';
+import DataComp from '@/components/DataComp';
+import InitPostsOnClient from '@/store/posts/InitOnClient';
 
 const getData = async () => {
   const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -20,12 +22,11 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Home() {
   const posts = await getData();
   return (
-    <div>
-      <h1>hello</h1>
-      <h3>давайте посмотрим немного шрифт</h3>
-      {posts.map((item: any) => (
-        <p key={item.id}>{item.title}</p>
-      ))}
-    </div>
+      <div>
+        <InitPostsOnClient data={posts} />
+        <h1>hello</h1>
+        <h3>давайте посмотрим немного шрифт</h3>
+        { posts &&  <DataComp />}
+      </div>
   );
 }

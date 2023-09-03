@@ -1,3 +1,4 @@
+import Providers from '@/store/Provider';
 import './globals.css';
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
@@ -23,7 +24,9 @@ export default function RootLayout({
       <body
         className={`${roboto.className} dark bg-background text-foreground`}
       >
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
