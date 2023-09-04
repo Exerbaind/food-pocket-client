@@ -1,7 +1,7 @@
 'use client'
-import { useAppSelector } from '@/store'
+import { useAppSelector } from '@/store';
 // import { useAppSelector } from '@/store';
-import React from 'react'
+import React from 'react';
 
 function DataComp() {
   const { data } = useAppSelector((state) => state.postsService);

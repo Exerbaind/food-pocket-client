@@ -1,6 +1,6 @@
-import { Metadata } from 'next';
 import DataComp from '@/components/DataComp';
 import InitPostsOnClient from '@/store/posts/InitOnClient';
+import { Metadata } from 'next';
 
 const getData = async () => {
   const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
