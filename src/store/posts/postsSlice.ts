@@ -1,12 +1,6 @@
+import { Post } from "@/interfaces/post.interface";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
-
-interface Post {
-    id: number;
-    userId: number;
-    title: string;
-    body: string;
-}
 
 export interface PostsState {
     data: Post[] | null,

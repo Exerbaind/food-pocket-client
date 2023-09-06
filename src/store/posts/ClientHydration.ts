@@ -1,10 +1,10 @@
 'use client'
 
 import { useRef } from "react";
-import { PostsState, setPosts } from "./postsSlice";
 import { useAppDispatch } from "..";
+import { PostsState, setPosts } from "./postsSlice";
 
-function InitOnClient ({ data }: PostsState ) {
+function ClientHydration ({ data }: PostsState ) {
     const dispatch = useAppDispatch();
     const initialized = useRef(false);
     if (!initialized.current && data) {
@@ -14,4 +14,4 @@ function InitOnClient ({ data }: PostsState ) {
     return null;
 }
 
-export default InitOnClient;
+export default ClientHydration;

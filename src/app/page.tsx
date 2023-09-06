@@ -1,13 +1,13 @@
 import DataComp from '@/components/DataComp';
-import InitPostsOnClient from '@/store/posts/InitOnClient';
+import { Post } from '@/interfaces/post.interface';
+import PostClientHydration from '@/store/posts/ClientHydration';
+import appApi from '@/utils/api';
 import { Metadata } from 'next';
 
-const getData = async () => {
-  const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-    next: { revalidate: 10 },
-  });
+export const revalidate = 3600;
 
-  const data = await response.json();
+const getData = async () => {
+  const { data } = await appApi.get<Post[]>('/posts');
 
   return data;
 };
@@ -23,7 +23,7 @@ export default async function Home() {
   const posts = await getData();
   return (
       <div>
-        <InitPostsOnClient data={posts} />
+        <PostClientHydration data={posts} />
         <h1>hello</h1>
         <h3>давайте посмотрим немного шрифт</h3>
         { posts &&  <DataComp />}
