@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import appReducer from './app/appSlice';
 import postsReducer from './posts/postsSlice';
 
 export const store = configureStore({
     reducer: {
-        postsService: postsReducer
+        postsService: postsReducer,
+        appService: appReducer
     }
 });
 

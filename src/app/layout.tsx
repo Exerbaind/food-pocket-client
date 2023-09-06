@@ -1,4 +1,6 @@
+import { store } from '@/store';
 import Providers from '@/store/Provider';
+import cn from '@/utils/tailwind/cn';
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 import './globals.css';
@@ -19,15 +21,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const { appService: { theme } } = store.getState();
+  const customClassName = `${roboto.className} ${theme}`;
   return (
     <html lang="ru">
-      <body
-        className={`${roboto.className} dark bg-background text-foreground`}
-      >
-        <Providers>
+      <Providers>
+        <body
+          className={cn('bg-background text-foreground', customClassName)}
+        >
           {children}
-        </Providers>
-      </body>
+        </body>
+      </Providers>
     </html>
   );
 }

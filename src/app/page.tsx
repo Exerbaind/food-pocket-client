@@ -1,4 +1,3 @@
-import DataComp from '@/components/DataComp';
 import { Post } from '@/interfaces/post.interface';
 import PostClientHydration from '@/store/posts/ClientHydration';
 import appApi from '@/utils/api';
@@ -24,9 +23,7 @@ export default async function Home() {
   return (
       <div>
         <PostClientHydration data={posts} />
-        <h1>hello</h1>
-        <h3>давайте посмотрим немного шрифт</h3>
-        { posts &&  <DataComp />}
+        <h1>Main Page</h1>
       </div>
   );
 }
