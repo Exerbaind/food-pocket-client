@@ -1,10 +1,10 @@
 import React from 'react';
 import FormNewFood from './components/FormNewFood';
 
-type FormTypes = 'newFood';
+type FormType = 'newFood';
 
 interface FormProps {
-  type: FormTypes;
+  type: FormType;
 }
 
 const formsList = {
