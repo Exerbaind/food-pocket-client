@@ -1,4 +1,4 @@
-import { store } from '@/store';
+import { store, useAppSelector } from '@/store';
 import Providers from '@/store/Provider';
 import cn from '@/utils/tailwind/cn';
 import type { Metadata } from 'next';
@@ -21,13 +21,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { appService: { theme } } = store.getState();
-  const customClassName = `${roboto.className} ${theme}`;
+  const { theme }  = store.getState().appService;
+  const customClassName = roboto.className;
   return (
     <html lang="ru">
       <Providers>
         <body
-          className={cn('bg-background text-foreground', customClassName)}
+          className={cn('', customClassName, {
+            'dark': theme,
+          })}
         >
           {children}
         </body>
