@@ -12,8 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="container flex justify-center">
-      <div className="max-w-max">{children}</div>
+    <div className="flex justify-center m-auto max-w-lg">
+      <div className="w-full">{children}</div>
     </div>
   );
 }

@@ -15,7 +15,6 @@ function Form({ type }: FormProps) {
   const FormComponent = formsList[type];
   return (
     <div>
-      <div>Form</div>
       <FormComponent />
     </div>
   );

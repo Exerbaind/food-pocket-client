@@ -1,0 +1,1 @@
+export const inputStyles = 'bg-input outline-none rounded py-2 px-4';
